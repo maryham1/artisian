@@ -8,18 +8,18 @@ function Policy() {
       className="fixed inset-0 bg-black/50 flex justify-center items-center z-50"
       onClick={() => navigate(-1)}
     >
-      <div className="bg-white shadow-md p-10 rounded-md w-[400px] h-auto relative">
+      <div className="bg-white shadow-md p-10 rounded-md w-[320px] laptop:w-[400px] tablet:w-[500px] h-auto relative">
         <CancelButton />
 
         <div className="space-y-3">
-          <h4 className="text-[18px] laptop:text-[22px] font-semibold text-center">
+          <h4 className="text-[18px] laptop:text-[22px] tablet:text-[20px] font-semibold text-center">
             Privacy Policy
           </h4>
-          <p className="text-[14px] laptop:text-[17px]">
+          <p className="text-[14px] laptop:text-[17px] tablet:text-[16px]">
             We respect your privacy and are committed to protecting your
             personal information.
           </p>
-          <p className="text-[14px] laptop:text-[17px]">
+          <p className="text-[14px] laptop:text-[17px] tablet:text-[16px]">
             We collect basic details like your name, contact information, and
             location to help connect you with trusted artisans and provide a
             smooth service experience.
@@ -29,11 +29,11 @@ function Policy() {
             and support your interactions on the platform. We do not sell your
             information to third parties.
           </p>
-          <p className="text-[14px] laptop:text-[17px]">
+          <p className="text-[14px] laptop:text-[17px] tablet:text-[16px]">
             We take appropriate measures to keep your data secure and ensure
             your information is handled safely.
           </p>
-          <p className="text-[14px] laptop:text-[17px]">
+          <p className="text-[14px] laptop:text-[17px] tablet:text-[16px]">
             By using our platform, you agree to the collection and use of your
             information as outlined here.
           </p>

@@ -40,19 +40,19 @@ const details = [
 
 function Flow() {
   return (
-    <div className="bg-white w-full  flex gap-5 justify-between items-center px-5 py-10 laptop:px-15 laptop:py-10 overflow-x-hidden ">
+    <div className="bg-white w-full  flex gap-5 justify-between items-center px-5 py-10 tablet:px-10 tablet-py-10 laptop:px-15 laptop:py-10 overflow-x-hidden ">
       {details.map((detail, i) => (
-        <div className="min-w-[205px] laptop:min-w-[260px] flex-shrink-1  flex gap-5 laptop:gap-10 ">
+        <div className="min-w-[205px] laptop:min-w-[260px] tablet:min-w-[220px] flex-shrink-1  flex gap-5 laptop:gap-10 ">
           <div>
             <div className="flex gap-2 items-center ">
-              <figure className="w-[10px] h-[10px] laptop:w-[15px] laptop:h-[15px] p-3 rounded-full flex items-center justify-center bg-[#D03531]">
+              <figure className="w-[10px] h-[10px] laptop:w-[15px] laptop:h-[15px] tablet:w-[13px] tablet:h-[13px] p-3 rounded-full flex items-center justify-center bg-[#D03531]">
                 <span>{detail.icon}</span>
               </figure>
-              <h4 className="text-[18px] laptop:text-[22px]  font-semibold">
+              <h4 className="text-[18px] laptop:text-[22px] tablet:text-[20px]  font-semibold">
                 {detail.title}
               </h4>
             </div>
-            <p className="text-[12px] laptop:text-[14px] text-[#4E545F]">
+            <p className="text-[12px] laptop:text-[14px] tablet:text-[13px] text-[#4E545F]">
               {detail.description}
             </p>
           </div>
