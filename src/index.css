@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+@theme {
+  --breakpoint-tablet: 640px; /*sm*/
+  --breakpoint-laptop: 1024px; /*lg*/
+  --breakpoint-desktop: 1028px; /*xl*/
+  --breakpoint-mobile: 0px; /*default*/
+  --font-poppins: "Poppins", sans-serif;
+}
