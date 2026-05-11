@@ -1,3 +1,4 @@
+import { useInView } from "react-intersection-observer";
 import AppInfo from "./AppInfo";
 
 const steps = [
@@ -22,9 +23,14 @@ const steps = [
 ];
 
 function Feature() {
+  const { ref, inView } = useInView({
+    threshold: 0.15,
+  });
   return (
     <section className="bg-[#F4F4F6] px-5 py-10 laptop:px-15 laptop:py-10 w-full tablet:px-10 tablet-py-10">
-      <div className="flex flex-col gap-5 items-center ">
+      <div
+        className={`flex flex-col gap-5 items-center transition-all duration-700 ease-in-out ${inView ? "animate-fade-in1" : ""}`}
+      >
         <div>
           <h4 className="text-[26px] laptop:text-[36px] tablet:text-[30px] font-semibold text-black text-center">
             How it work
@@ -42,7 +48,12 @@ function Feature() {
         ${i === 1 ? "items-end" : "items-start"}
         laptop:items-center
         relative
+        transition-all duration-700 ease-in-out ${inView ? "animate-fade-in1" : ""}
       `}
+              style={{
+                transitionDelay: `${i * 200}ms`,
+              }}
+              ref={ref}
             >
               {/* CARD */}
               <div className="bg-white p-6  w-[290px] max-w-[300px] laptop:w-[350px] tablet:w-[320px] tablet:max-w-[320px] rounded-md shadow-md space-y-2">

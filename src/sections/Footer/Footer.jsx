@@ -3,35 +3,43 @@ import { MdEmail } from "react-icons/md";
 import Logo from "../../ui/Logo";
 import Policy from "./Policy";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import { useInView } from "react-intersection-observer";
 
 function Footer() {
+  const { ref, inView } = useInView({
+    threshold: 0.15,
+  });
   return (
     <section className="bg-[#F4F4F6]   px-5 py-10 laptop:px-15 laptop:py-10 w-full tablet:px-10 tablet-py-10 ">
-      <div className="flex flex-col gap-10">
+      <div
+        className={`flex flex-col gap-10 transition-all ease-in-out duration-700 ${inView ? "animate-fade-in1" : ""}`}
+        ref={ref}
+      >
         <div className="flex flex-col laptop:flex-row tablet:flex-row  gap-10 justify-between ">
           {/* social media */}
           <div className="space-y-2">
             <figure className="flex gap-2 laptop:gap-5 tablet:gap-4 items-center ">
               <a href="https://facebook.com/Mariam Olayiwola">
-                <img
+                <LazyLoadImage
                   src="\Quick-image\social-icon\facebook.png"
                   className="object-contain w-[20px] laptop:w-auto tablet:w-[30px]"
                 />
               </a>
               <a href="https://instagram.com/Mariam | Codey_sis">
-                <img
+                <LazyLoadImage
                   src="\Quick-image\social-icon\instagram.png"
                   className="object-contain w-[20px] laptop:w-auto tablet:w-[30px]"
                 />
               </a>
               <a href="https://www.linkedin.com/in/mariam-olayiwola-4bbb1031b/">
-                <img
+                <LazyLoadImage
                   src="\Quick-image\social-icon\Linkedin.png"
                   className="object-contain w-[20px] laptop:w-auto tablet:w-[30px]"
                 />
               </a>
               <a href="https://x.com/Codey_sis">
-                <img
+                <LazyLoadImage
                   src="\Quick-image\social-icon\Twitter.png"
                   className="object-contain w-[20px] laptop:w-auto tablet:w-[30px]"
                 />

@@ -1,9 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { getFAQ } from "../../Services/faqApi";
 import { useState } from "react";
+import { useInView } from "react-intersection-observer";
 
 function Faq() {
   const [showAnswer, setShowAnswer] = useState(null);
+  const { ref, inView } = useInView({
+    threshold: 0.15,
+  });
   const { isLoading, data: faqs } = useQuery({
     queryKey: ["faq"],
     queryFn: getFAQ,
@@ -11,7 +15,10 @@ function Faq() {
   console.log(faqs);
   return (
     <section className="bg-[#F4F4F6]   px-5 py-10 pt-10 laptop:px-15 laptop:py-10 laptop:pt-30 pb-0 w-full tablet:px-10 tablet-py-10">
-      <div className="flex flex-col items-center ">
+      <div
+        className={`flex flex-col items-center transition-all ease-in-out duration-700 ${inView ? "animate-fade-in1" : ""}`}
+        ref={ref}
+      >
         <div className=" w-auto laptop: w-[600px] tablet:w-[600px] space-y-5 ">
           <figure className="flex p-2 justify-between border-2 border-l-0 border-r-0 border-[#a6a7a9]">
             <h4 className="text-[20px] laptop:text-[30px] font-semibold text-black">

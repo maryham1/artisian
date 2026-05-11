@@ -1,21 +1,36 @@
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 import Certifed from "./Certifed";
 import Mission from "./Mission";
+import { useInView } from "react-intersection-observer";
 
 function About() {
+  const { ref, inView } = useInView({
+    threshold: 0.15,
+  });
   return (
     <section className="bg-[#F4F4F6] w-full px-5 py-10 laptop:px-15 laptop:py-10 tablet:px-10 tablet-py-10">
-      <div className="flex flex-col laptop:flex-row gap-10 justify-between items-center m-auto tablet:flex-row  ">
-        <div className="relative w-[400px] laptop:w-[500px] tablet:w-[400px] order-2 laptop:order-1 tablet:order-1">
-          <img
+      <div
+        className={`flex flex-col laptop:flex-row gap-10 justify-between items-center m-auto tablet:flex-row  `}
+      >
+        <div
+          className={`relative w-[400px] laptop:w-[500px] tablet:w-[400px] order-2 laptop:order-1 tablet:order-1 transition-all ease-in-out duration-700 ${inView ? "animate-left-in" : ""}`}
+          ref={ref}
+        >
+          <LazyLoadImage
+            effect="blur"
             src="\Quick-image\company-associate\Group.png"
             className="relative w-[400px] laptop:w-[500px] tablet:w-[350px]"
           />
-          <img
+          <LazyLoadImage
             src="\Quick-image\company-associate\female-engr.png"
             className="absolute top-10 left-10 w-[320px] laptop:w-[420px] tablet:w-[320px] h-auto"
           />
         </div>
-        <div className="w-auto laptop:w-[600px] tablet:w-[400px]  flex flex-col gap-5 order-1 laptop:order-2 tablet:order-2">
+        <div
+          className={`w-auto laptop:w-[600px] tablet:w-[400px]  flex flex-col gap-5 order-1 laptop:order-2 tablet:order-2 transition-all ease-in-out duration-700 ${inView ? "animate-right-in" : ""}`}
+          ref={ref}
+        >
           <h4 className="text-[20px] laptop:text-[36px] tablet:text-[30px] font-semibold text-black  ">
             Who we are
           </h4>

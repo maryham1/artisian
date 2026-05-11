@@ -6,6 +6,7 @@ import {
 } from "react-icons/fa";
 
 import { FiActivity } from "react-icons/fi";
+import { useInView } from "react-intersection-observer";
 
 const details = [
   {
@@ -39,8 +40,14 @@ const details = [
 ];
 
 function Flow() {
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  });
   return (
-    <div className="bg-white w-full  flex gap-5 justify-between items-center px-5 py-10 tablet:px-10 tablet-py-10 laptop:px-15 laptop:py-10 overflow-x-hidden ">
+    <div
+      className={`bg-white w-full  flex gap-5 justify-between items-center px-5 py-10 tablet:px-10 tablet-py-10 laptop:px-15 laptop:py-10 overflow-x-hidden  ${inView ? "animate-fade-in1" : ""} `}
+      ref={ref}
+    >
       {details.map((detail, i) => (
         <div className="min-w-[205px] laptop:min-w-[260px] tablet:min-w-[220px] flex-shrink-1  flex gap-5 laptop:gap-10 ">
           <div>
