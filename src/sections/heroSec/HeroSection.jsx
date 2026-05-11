@@ -28,7 +28,7 @@ function HeroSection() {
     <>
       <header className="bg-[#F4F4F6] px-5 py-10 laptop:px-15 laptop:py-10  tablet:px-10 tablet-py-10 relative overflow-x-hidden overflow-y-hidden ">
         <Navbar />
-        <div className="absolute bottom-0 left-0 w-full h-full bg-[#D03531]/7 blur-3xl   rounded-full"></div>
+        <div className="absolute bottom-0 left-0 w-full h-full bg-[#D03531]/5 blur-3xl   rounded-full"></div>
         <div className="animate-fade-in transition-all ease-in duration-300">
           <div className="font-poppins w-[335px] max-w-[360px] laptop:w-[780px] laptop:max-w-[780px] tablet:w-[500px] tablet:max-w-[500px] mt-10 laptop:mt-15">
             <h1
