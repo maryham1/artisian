@@ -3,13 +3,19 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import Certifed from "./Certifed";
 import Mission from "./Mission";
 import { useInView } from "react-intersection-observer";
+import { useComponent } from "../../context/ScrollContext";
 
 function About() {
   const { ref, inView } = useInView({
     threshold: 0.15,
   });
+  const { aboutRef } = useComponent();
   return (
-    <section className="bg-[#F4F4F6] w-full px-5 py-10 laptop:px-15 laptop:py-10 tablet:px-10 tablet-py-10">
+    <section
+      className="bg-[#F4F4F6] w-full px-5 py-10 laptop:px-15 laptop:py-10 tablet:px-10 tablet-py-10"
+      id="about"
+      ref={aboutRef}
+    >
       <div
         className={`flex flex-col laptop:flex-row gap-10 justify-between items-center m-auto tablet:flex-row  `}
       >

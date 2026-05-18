@@ -1,5 +1,6 @@
 import { useInView } from "react-intersection-observer";
 import AppInfo from "./AppInfo";
+import { useComponent } from "../../context/ScrollContext";
 
 const steps = [
   {
@@ -26,8 +27,13 @@ function Feature() {
   const { ref, inView } = useInView({
     threshold: 0.15,
   });
+  const { feature } = useComponent();
   return (
-    <section className="bg-[#F4F4F6] px-5 py-10 laptop:px-15 laptop:py-10 w-full tablet:px-10 tablet-py-10">
+    <section
+      className="bg-[#F4F4F6] px-5 py-10 laptop:px-15 laptop:py-10 w-full tablet:px-10 tablet-py-10"
+      id="feature"
+      ref={feature}
+    >
       <div
         className={`flex flex-col gap-5 items-center transition-all duration-700 ease-in-out ${inView ? "animate-fade-in1" : ""}`}
       >

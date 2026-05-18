@@ -2,19 +2,25 @@ import { useQuery } from "@tanstack/react-query";
 import { getFAQ } from "../../Services/faqApi";
 import { useState } from "react";
 import { useInView } from "react-intersection-observer";
+import { useComponent } from "../../context/ScrollContext";
 
 function Faq() {
   const [showAnswer, setShowAnswer] = useState(null);
   const { ref, inView } = useInView({
     threshold: 0.15,
   });
+  const { faq } = useComponent();
   const { isLoading, data: faqs } = useQuery({
     queryKey: ["faq"],
     queryFn: getFAQ,
   });
   console.log(faqs);
   return (
-    <section className="bg-[#F4F4F6]   px-5 py-10 pt-10 laptop:px-15 laptop:py-10 laptop:pt-30 pb-0 w-full tablet:px-10 tablet-py-10">
+    <section
+      className="bg-[#F4F4F6]   px-5 py-10 pt-10 laptop:px-15 laptop:py-10 laptop:pt-30 pb-0 w-full tablet:px-10 tablet-py-10"
+      id="faq"
+      ref={faq}
+    >
       <div
         className={`flex flex-col items-center transition-all ease-in-out duration-700 ${inView ? "animate-fade-in1" : ""}`}
         ref={ref}
